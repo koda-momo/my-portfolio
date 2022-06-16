@@ -1,11 +1,11 @@
 import { FC, memo, ReactNode, useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 //components
 import { Header } from "./Header";
 
 //MUI
 import { styled } from "@mui/material/styles";
+import { useMakeTitle } from "../hooks/useMakeTitle";
 
 type Props = {
   children: ReactNode;
@@ -15,28 +15,16 @@ type Props = {
  * 全体のレイアウト用コンポーネント.
  */
 export const Layout: FC<Props> = memo(({ children }) => {
-  const router = useRouter();
-
+  //ページタイトル
   const [title, setTitle] = useState("");
+
+  const { makeTitle } = useMakeTitle();
 
   /**
    * パスからページタイトルを作成.
    */
   useEffect(() => {
-    //パスからタイトルを取得 → 頭の/を削除
-    const url = router.pathname;
-    const urlLength = url.length;
-    const titleName = url.slice(1, urlLength + 1);
-
-    //PathがindexならばHomeを代入
-    if (url === "/") {
-      setTitle("Home");
-    } else {
-      //それ以外は頭の文字だけ大文字にして代入
-      const initial = titleName[0].toUpperCase();
-      const behind = titleName.slice(1, titleName.length + 1);
-      setTitle(initial + behind);
-    }
+    setTitle(makeTitle());
   }, []);
 
   return (
