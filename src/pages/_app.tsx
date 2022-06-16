@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout";
 import { useMakeTitle } from "../hooks/useMakeTitle";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  //ページタイトル
   const { makeTitle } = useMakeTitle();
 
   return (

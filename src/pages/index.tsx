@@ -1,5 +1,8 @@
 import type { NextPage } from "next";
 
+/**
+ * Home画面.
+ */
 const Home: NextPage = () => {
   return (
     <>

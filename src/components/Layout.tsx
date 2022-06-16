@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode, useEffect, useState } from "react";
+import { FC, memo, ReactNode } from "react";
 
 //components
 import { Header } from "./Header";
@@ -16,20 +16,11 @@ type Props = {
  */
 export const Layout: FC<Props> = memo(({ children }) => {
   //ページタイトル
-  const [title, setTitle] = useState("");
-
   const { makeTitle } = useMakeTitle();
-
-  /**
-   * パスからページタイトルを作成.
-   */
-  useEffect(() => {
-    setTitle(makeTitle());
-  }, []);
 
   return (
     <>
-      <Header title={title} />
+      <Header title={makeTitle()} />
       <_Main>{children}</_Main>
     </>
   );
