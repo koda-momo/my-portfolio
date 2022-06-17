@@ -7,9 +7,9 @@ import Link from "next/link";
 export const Menubar: FC = memo(() => {
   const [menuList] = useState([
     { id: 1, name: "Home" },
-    { id: 2, name: "develop" },
-    { id: 3, name: "skill" },
-    { id: 4, name: "other" },
+    { id: 2, name: "Develop" },
+    { id: 3, name: "Skill" },
+    { id: 4, name: "Other" },
   ]);
   return (
     <>
@@ -22,7 +22,7 @@ export const Menubar: FC = memo(() => {
                 <a>{item.name}</a>
               </Link>
             ) : (
-              <Link href={`/${item.name}`}>
+              <Link href={`/${item.name.toLocaleLowerCase()}`}>
                 <a>{item.name}</a>
               </Link>
             )}
