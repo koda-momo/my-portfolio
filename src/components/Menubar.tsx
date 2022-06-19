@@ -22,7 +22,7 @@ export const Menubar: FC = memo(() => {
                 <a>{item.name}</a>
               </Link>
             ) : (
-              <Link href={`/${item.name.toLocaleLowerCase()}`}>
+              <Link href={`/main/${item.name.toLocaleLowerCase()}`}>
                 <a>{item.name}</a>
               </Link>
             )}
