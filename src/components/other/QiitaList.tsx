@@ -2,8 +2,8 @@ import { FC, memo } from "react";
 import Link from "next/link";
 
 //components
-import { useFormatDate } from "../hooks/useFormatDate";
-import { QiitaType } from "../types/qiitaType";
+import { useFormatDate } from "../../hooks/useFormatDate";
+import { QiitaType } from "../../types/qiitaType";
 
 //MUI
 import { styled } from "@mui/material/styles";
