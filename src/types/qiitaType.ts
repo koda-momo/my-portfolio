@@ -3,7 +3,6 @@
  */
 export type QiitaTagType = {
   name: string;
-  versions: Array<string>;
 };
 
 /**
@@ -19,6 +18,21 @@ export type QiitaType = {
   url: string;
   title: string;
   tags: Array<QiitaTagType>;
+};
+
+/**
+ * 取得後Qiita記事型.
+ */
+export type GetQiitaType = {
+  id: string;
+  page_views_count: string;
+  likes_count: number;
+  comments_count: number;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  title: string;
+  tags: Array<string>;
 };
 
 /**

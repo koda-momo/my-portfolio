@@ -3,11 +3,12 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 //components
 import { QiitaList } from "../../components/other/QiitaList";
 import { QiitaUser } from "../../components/other/QiitaUser";
-import { QiitaTagType, QiitaType } from "../../types/qiitaType";
+import { GetQiitaType } from "../../types/qiitaType";
 
 //MUI
 import { styled } from "@mui/material/styles";
 import Link from "next/link";
+import { getQiitaData } from "../../ulils/GetQiitaData";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -26,7 +27,7 @@ const Other: NextPage<Props> = ({ userData, data }) => {
         <_A>もっと見る</_A>
       </Link>
       <_Qiita>
-        {data.map((item: QiitaType) => (
+        {data.map((item: GetQiitaType) => (
           <QiitaList data={item} key={item.id} />
         ))}
       </_Qiita>
@@ -58,45 +59,7 @@ const _Qiita = styled("div")(() => ({
  * Qiitaデータの取得.
  */
 export const getStaticProps: GetStaticProps = async () => {
-  const key = {
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_QIITA_KEY}`,
-    },
-  };
-  const res = await fetch(
-    "https://qiita.com/api/v2/authenticated_user/items?page=1&per_page=50",
-    key
-  );
-  const jsonData = await res.json();
-
-  //ユーザ情報
-  const user = jsonData[0].user;
-  const userData = {
-    id: user.id,
-    name: user.name,
-    description: user.description,
-    profileImageUrl: user.profile_image_url,
-  };
-
-  //記事情報(必要な情報だけ取得)
-  const data = jsonData.map((item: QiitaType) => {
-    const tagList = item.tags.map((tagItem: QiitaTagType) => {
-      return tagItem.name;
-    });
-
-    return {
-      id: item.id,
-      page_views_count: item.page_views_count,
-      likes_count: item.likes_count,
-      comments_count: item.comments_count,
-      created_at: item.created_at,
-      updated_at: item.updated_at,
-      url: item.url,
-      tags: tagList,
-      title: item.title,
-    };
-  });
+  const { userData, data } = await getQiitaData();
 
   return {
     props: {

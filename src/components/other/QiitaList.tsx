@@ -3,15 +3,16 @@ import Link from "next/link";
 
 //components
 import { useFormatDate } from "../../hooks/useFormatDate";
-import { QiitaType } from "../../types/qiitaType";
+import { GetQiitaType } from "../../types/qiitaType";
 
 //MUI
 import { styled } from "@mui/material/styles";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 type Props = {
-  data: QiitaType;
+  data: GetQiitaType;
 };
 
 /**
@@ -24,8 +25,15 @@ export const QiitaList: FC<Props> = memo(({ data }) => {
     <>
       <_Qiita>
         <Link href={data.url}>
-          <_A>
+          <a>
             {data.title}
+
+            {/* タグ */}
+            <_TagList>
+              {data.tags.map((tagItem) => (
+                <_Tag key={tagItem}>{tagItem}</_Tag>
+              ))}
+            </_TagList>
 
             <_Flex>
               {/* いいね */}
@@ -45,10 +53,19 @@ export const QiitaList: FC<Props> = memo(({ data }) => {
                 {data.comments_count}
               </_Icon>
 
+              {/* 閲覧数 */}
+              <_Icon>
+                <_IconColor>
+                  <RemoveRedEyeIcon />
+                </_IconColor>
+
+                {data.page_views_count}
+              </_Icon>
+
               <div>作成日:{formatDate(data.created_at)}</div>
               <div>更新日:{formatDate(data.updated_at)}</div>
             </_Flex>
-          </_A>
+          </a>
         </Link>
       </_Qiita>
     </>
@@ -76,8 +93,17 @@ const _Flex = styled("div")(() => ({
   gap: 20,
 }));
 
-const _A = styled("a")(() => ({
-  ":hover": {
-    opacity: "40%",
-  },
+const _Tag = styled("div")(() => ({
+  backgroundColor: "#C7D36F",
+  borderRadius: "5%",
+  padding: 5,
+  color: "white",
+  fontSize: 15,
+}));
+
+const _TagList = styled("div")(() => ({
+  display: "flex",
+  gap: 5,
+  marginTop: 10,
+  marginBottom: 10,
 }));
