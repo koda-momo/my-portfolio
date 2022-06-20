@@ -20,3 +20,13 @@ export type QiitaType = {
   title: string;
   tags: Array<QiitaTagType>;
 };
+
+/**
+ * Qiitaユーザ型.
+ */
+export type QiitaUserType = {
+  id: string;
+  name: string;
+  description: string;
+  profileImageUrl: string;
+};

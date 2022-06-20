@@ -1,11 +1,12 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import Image from "next/image";
-
-import { QiitaList } from "../../components/QiitaList";
 
 //components
-
+import { QiitaList } from "../../components/other/QiitaList";
+import { QiitaUser } from "../../components/other/QiitaUser";
 import { QiitaTagType, QiitaType } from "../../types/qiitaType";
+
+//MUI
+import { styled } from "@mui/material/styles";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -15,14 +16,10 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const Other: NextPage<Props> = ({ userData, data }) => {
   return (
     <>
-      <Image
-        alt="プロフィール画像"
-        src={userData.profileImageUrl}
-        width={100}
-        height={100}
-      />
-      <div>{userData.id}</div>
-      <div>{userData.description}</div>
+      <h1>Qiita</h1>
+      <_User>
+        <QiitaUser data={userData} />
+      </_User>
       記事一覧
       {data.map((item: QiitaType) => (
         <QiitaList data={item} key={item.id} />
@@ -30,6 +27,12 @@ const Other: NextPage<Props> = ({ userData, data }) => {
     </>
   );
 };
+
+const _User = styled("div")(() => ({
+  display: "flex",
+  justifyContent: "center",
+  margin: "50px auto 70px 80px",
+}));
 
 /**
  * Qiitaデータの取得.
