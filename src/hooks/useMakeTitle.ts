@@ -11,8 +11,6 @@ export const useMakeTitle = () => {
   const makeTitle = useCallback(() => {
     //パスからタイトルを取得 → 頭の/を削除
     const url = router.pathname;
-    const urlLength = url.length;
-    const titleName = url.slice(1, urlLength + 1);
 
     let title = "";
 
@@ -21,6 +19,8 @@ export const useMakeTitle = () => {
       title = "Home";
     } else {
       //それ以外は頭の文字だけ大文字にして代入
+      const urlLength = url.length;
+      const titleName = url.slice(6, urlLength + 1);
       const initial = titleName[0].toUpperCase();
       const behind = titleName.slice(1, titleName.length + 1);
       title = initial + behind;
