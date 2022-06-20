@@ -1,7 +1,10 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { useFormatDate } from "../../hooks/useFormatDate";
+
+import { QiitaList } from "../../components/QiitaList";
+
+//components
+
 import { QiitaTagType, QiitaType } from "../../types/qiitaType";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -10,8 +13,6 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
  * その他情報ページ.
  */
 const Other: NextPage<Props> = ({ userData, data }) => {
-  const { formatDate } = useFormatDate();
-
   return (
     <>
       <Image
@@ -23,13 +24,9 @@ const Other: NextPage<Props> = ({ userData, data }) => {
       <div>{userData.id}</div>
       <div>{userData.description}</div>
       記事一覧
-      <Link href={data[0].url}>
-        <a>{data[0].title}</a>
-      </Link>
-      <div>いいね数:{data[0].likesCount}</div>
-      <div>コメント数:{data[0].commentsCount}</div>
-      <div>作成日:{formatDate(data[0].createdAt)}</div>
-      <div>更新日:{formatDate(data[0].updatedAt)}</div>
+      {data.map((item: QiitaType) => (
+        <QiitaList data={item} key={item.id} />
+      ))}
     </>
   );
 };
@@ -66,11 +63,12 @@ export const getStaticProps: GetStaticProps = async () => {
     });
 
     return {
-      pageViewsCount: item.page_views_count,
-      likesCount: item.likes_count,
-      commentsCount: item.comments_count,
-      createdAt: item.created_at,
-      updatedAt: item.updated_at,
+      id: item.id,
+      page_views_count: item.page_views_count,
+      likes_count: item.likes_count,
+      comments_count: item.comments_count,
+      created_at: item.created_at,
+      updated_at: item.updated_at,
       url: item.url,
       tags: tagList,
       title: item.title,
