@@ -7,6 +7,7 @@ import { QiitaTagType, QiitaType } from "../../types/qiitaType";
 
 //MUI
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -20,18 +21,37 @@ const Other: NextPage<Props> = ({ userData, data }) => {
       <_User>
         <QiitaUser data={userData} />
       </_User>
-      記事一覧
-      {data.map((item: QiitaType) => (
-        <QiitaList data={item} key={item.id} />
-      ))}
+      記事一覧:
+      <Link href={`https://qiita.com/${userData.id}`}>
+        <_A>もっと見る</_A>
+      </Link>
+      <_Qiita>
+        {data.map((item: QiitaType) => (
+          <QiitaList data={item} key={item.id} />
+        ))}
+      </_Qiita>
     </>
   );
 };
+
+const _A = styled("a")(() => ({
+  ":hover": {
+    opacity: "40%",
+  },
+}));
 
 const _User = styled("div")(() => ({
   display: "flex",
   justifyContent: "center",
   margin: "50px auto 70px 80px",
+}));
+
+const _Qiita = styled("div")(() => ({
+  marginBottom: 100,
+  overflow: "auto",
+  height: 300,
+  width: "auto",
+  "&::-webkit-scrollbar": { display: "none" },
 }));
 
 /**
