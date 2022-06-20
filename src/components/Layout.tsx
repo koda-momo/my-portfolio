@@ -22,7 +22,6 @@ export const Layout: FC<Props> = memo(({ children }) => {
   return (
     <>
       <Header title={makeTitle()} />
-      <main></main>
       <_Main>
         <_Contents>{children}</_Contents>
 
@@ -34,7 +33,7 @@ export const Layout: FC<Props> = memo(({ children }) => {
   );
 });
 
-const _Main = styled("div")(() => ({
+const _Main = styled("main")(() => ({
   position: "absolute",
   left: 50,
   top: 150,
