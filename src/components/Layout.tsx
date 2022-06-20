@@ -25,18 +25,17 @@ export const Layout: FC<Props> = memo(({ children }) => {
       <_Main>
         <_Contents>{children}</_Contents>
 
-        <_Menu>
+        <div>
           <Menubar />
-        </_Menu>
+        </div>
       </_Main>
     </>
   );
 });
 
 const _Main = styled("main")(() => ({
-  position: "absolute",
-  left: 50,
-  top: 150,
+  marginTop: 170,
+  marginLeft: 70,
   display: "flex",
   gap: "10%",
   width: "90%",
@@ -45,5 +44,3 @@ const _Main = styled("main")(() => ({
 const _Contents = styled("div")(() => ({
   width: "100%",
 }));
-
-const _Menu = styled("div")(() => ({}));

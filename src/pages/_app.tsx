@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>portfolio:{makeTitle()}</title>
         <meta name="description" content="サイトの説明を入れる" />
-        {/* <link rel="icon" href="/images/favicon.jpg" /> */}
       </Head>
 
       <Layout>

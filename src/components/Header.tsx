@@ -12,26 +12,12 @@ type Props = {
  */
 export const Header: FC<Props> = memo(({ title }) => {
   return (
-    <_Header>
+    <>
       <_Title>{title}</_Title>
       <_Line />
-      <_Background />
-    </_Header>
+    </>
   );
 });
-
-const _Header = styled("div")(() => ({
-  position: "absolute",
-  left: 0,
-  top: 0,
-  height: "100%",
-}));
-
-const _Background = styled("div")(() => ({
-  background: "#E0DECA",
-  width: 100,
-  height: "100%",
-}));
 
 const _Line = styled("div")(() => ({
   position: "absolute",
