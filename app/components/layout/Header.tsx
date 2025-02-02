@@ -6,7 +6,7 @@ import { pageNavList } from "~/const/top";
  */
 export const Header: FC = () => {
   return (
-    <header className="h-28 flex gap-20 items-center">
+    <header className="px-10 h-28 flex gap-20 items-center">
       <a href="/" className="hover:opacity-70">
         <img
           src="/top/top-title.png"
