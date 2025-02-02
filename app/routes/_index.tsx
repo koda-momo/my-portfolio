@@ -56,15 +56,16 @@ export default function Index() {
 
       <div className="my-16 text-center">
         <p>2021年10月〜 フロントエンドエンジニアをやっています。</p>
+        <p>※このサイトはPCでの閲覧を推奨しております</p>
       </div>
 
-      <div className="w-[60%] mx-auto pb-20">
+      <div className="w-[70%] mx-auto pb-20">
         {/* カード */}
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-wrap xl:flex-nowrap xl:gap-10">
           {urlList.map(({ name, list }) => (
-            <div key={name} className="mt-5">
+            <div key={name} className="mt-10 xl:mt-5">
               <h2 className="text-4xl">{name}</h2>
-              <div className="flex gap-3 mt-2">
+              <div className="flex mt-2 gap-3">
                 {list.map((item) => (
                   <Card key={item.name} item={item} />
                 ))}
