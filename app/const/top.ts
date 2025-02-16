@@ -41,7 +41,7 @@ export const urlList: UrlList = [
       },
       {
         name: "現アカウント(2024〜)",
-        url: `${githubUrl}/iimomo`,
+        url: `${githubUrl}/koda-momo`,
         image: `${githubImageUrl}/174192380`,
         rounded: true,
       },
