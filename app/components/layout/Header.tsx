@@ -14,10 +14,24 @@ export const Header: FC = () => {
         <img
           src="/top/top-title.png"
           alt="kodamomoのポートフォリオサイト"
-          className="w-60"
+          className="w-40 lg:w-60"
         />
       </a>
 
+      {/* PC */}
+      <nav className="hidden lg:block">
+        <ul className="flex lg:gap-5">
+          {pageNavList.map(({ url, name }) => (
+            <li key={name}>
+              <a href={url} className="hover:text-secondary">
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* SP */}
       <div className="lg:hidden">
         <button
           className={clsx(
@@ -43,18 +57,6 @@ export const Header: FC = () => {
           </nav>
         )}
       </div>
-
-      <nav className="hidden lg:block">
-        <ul className="flex lg:gap-5">
-          {pageNavList.map(({ url, name }) => (
-            <li key={name}>
-              <a href={url} className="hover:text-secondary">
-                {name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
     </header>
   );
 };
