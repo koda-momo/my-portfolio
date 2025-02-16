@@ -1,4 +1,5 @@
 import { Footer, H2, Header, Wrapper } from "~/components";
+import { Accordion } from "~/components/Accordion";
 import { otherSkillList, outsideList, skillList } from "~/const/skill";
 
 /**
@@ -14,16 +15,7 @@ export default function Skill() {
           <H2>スキル(現場経験あり)</H2>
           <div className="lg:flex flex-wrap gap-3">
             {skillList.map(({ name, list }) => (
-              <div key={name} className="px-5">
-                <h3 className="text-2xl">{name}</h3>
-                <ul className="mt-4 mb-10 lg:my-5">
-                  {list.map((listItem) => (
-                    <li key={listItem} className="list-disc mx-5 mb-2">
-                      {listItem}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Accordion key={name} title={name} list={list} />
             ))}
           </div>
         </div>
@@ -32,16 +24,7 @@ export default function Skill() {
           <H2>スキル(現場経験なし)</H2>
           <div className="lg:flex flex-wrap gap-3">
             {otherSkillList.map(({ name, list }) => (
-              <div key={name} className="px-5">
-                <h3 className="text-2xl">{name}</h3>
-                <ul className="mt-4 mb-10 lg:my-5">
-                  {list.map((listItem) => (
-                    <li key={listItem} className="list-disc mx-5 mb-2">
-                      {listItem}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Accordion key={name} title={name} list={list} />
             ))}
           </div>
         </div>
