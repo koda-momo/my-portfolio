@@ -11,7 +11,7 @@ type Props = {
  */
 export const Card: FC<Props> = ({ item }) => {
   return (
-    <div className="px-3 w-64 h-40 border-2 border-tertiary rounded-md text-center hover:bg-secondary hover:border-secondary hover:text-primary">
+    <div className="px-3 w-[100%] lg:w-64 lg:h-40 border-2 border-tertiary rounded-md text-center hover:bg-secondary hover:border-secondary hover:text-primary">
       <a
         href={item.url}
         target={item.url?.includes("http") ? "_blank" : "_self"}

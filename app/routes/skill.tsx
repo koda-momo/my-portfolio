@@ -12,11 +12,11 @@ export default function Skill() {
       <Wrapper>
         <div>
           <H2>スキル(現場経験あり)</H2>
-          <div className="flex flex-wrap gap-3">
+          <div className="lg:flex flex-wrap gap-3">
             {skillList.map(({ name, list }) => (
               <div key={name} className="px-5">
                 <h3 className="text-2xl">{name}</h3>
-                <ul className="my-5">
+                <ul className="mt-4 mb-10 lg:my-5">
                   {list.map((listItem) => (
                     <li key={listItem} className="list-disc mx-5 mb-2">
                       {listItem}
@@ -30,11 +30,11 @@ export default function Skill() {
 
         <div className="mt-20">
           <H2>スキル(現場経験なし)</H2>
-          <div className="flex flex-wrap gap-3">
+          <div className="lg:flex flex-wrap gap-3">
             {otherSkillList.map(({ name, list }) => (
               <div key={name} className="px-5">
                 <h3 className="text-2xl">{name}</h3>
-                <ul className="my-5">
+                <ul className="mt-4 mb-10 lg:my-5">
                   {list.map((listItem) => (
                     <li key={listItem} className="list-disc mx-5 mb-2">
                       {listItem}
