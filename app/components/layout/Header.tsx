@@ -9,7 +9,7 @@ export const Header: FC = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   return (
-    <header className="relative px-10 h-28 flex lg:gap-20 items-center justify-between lg:justify-start">
+    <header className="relative px-4 lg:px-10 h-28 flex lg:gap-20 items-center justify-between lg:justify-start">
       <a href="/" className="hover:opacity-70">
         <img
           src="/top/top-title.png"
@@ -35,7 +35,7 @@ export const Header: FC = () => {
       <div className="lg:hidden">
         <button
           className={clsx(
-            "text-4xl z-[20] absolute top-5",
+            "text-4xl z-[20] absolute top-5 right-4",
             hamburgerOpen && "text-secondary"
           )}
           onClick={() => setHamburgerOpen((prev) => !prev)}
