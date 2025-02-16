@@ -5,7 +5,7 @@ export const skillList = [
     list: ["JavaScript", "TypeScript", "HTML", "CSS"],
   },
   {
-    name: "フレームワーク",
+    name: "フレームワークなど",
     list: ["React", "Next.js(Pages Router)"],
   },
   {
@@ -33,9 +33,13 @@ export const skillList = [
   {
     name: "経験",
     list: [
+      "BtoBのサービス開発",
+      "BtoCのサービス開発",
       "詳細設計, 実装, デバッグ, テスト",
       "新規構築, リプレイス",
       "パフォーマンス改善, SEO対策",
+      "大人数(10名以上)での開発経験",
+      "少人数(2名)での開発経験",
     ],
   },
 ];
