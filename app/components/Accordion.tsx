@@ -24,8 +24,10 @@ export const Accordion: FC<Props> = ({ title, list }) => {
         <h3 className="text-xl lg:text-2xl">{title}</h3>
         <div
           className={clsx(
-            "w-3 h-3 border-tertiary border-b-2  border-solid lg:hidden transition-transform duration-300 ease-in-out",
-            open ? "rotate-45 border-r-2" : "-rotate-45 border-l-2"
+            "w-3 h-3 border-tertiary  border-solid lg:hidden transition-transform duration-300 ease-in-out",
+            open
+              ? "rotate-[135deg] border-b-2 border-l-2"
+              : "-rotate-45 border-b-2 border-l-2"
           )}
         />
       </button>

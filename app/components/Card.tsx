@@ -25,7 +25,10 @@ export const Card: FC<Props> = ({ item }) => {
           <img
             src={item.image}
             alt="イメージ画像"
-            className={clsx("w-20 mx-auto", item.rounded && "rounded-full")}
+            className={clsx(
+              "w-12 lg:w-20 mx-auto",
+              item.rounded && "rounded-full"
+            )}
           />
         )}
 
