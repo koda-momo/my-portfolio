@@ -8,5 +8,7 @@ type Props = {
  * ページwrapper.
  */
 export const Wrapper: FC<Props> = ({ children }) => {
-  return <div className="pt-10 pb-72 px-20 xl:pb-20">{children}</div>;
+  return (
+    <div className="px-5 pb-40 lg:pt-10 lg:px-20 lg:pb-20">{children}</div>
+  );
 };

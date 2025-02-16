@@ -15,8 +15,9 @@ export const Header: FC = () => {
         />
       </a>
 
-      <nav>
-        <ul className="flex gap-5">
+      {/* TODO:ハンバーガーメニュー化 */}
+      <nav className="hidden lg:block">
+        <ul className="flex lg:gap-5">
           {pageNavList.map(({ url, name }) => (
             <li key={name}>
               <a href={url} className="hover:text-secondary">
