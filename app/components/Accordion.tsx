@@ -21,7 +21,7 @@ export const Accordion: FC<Props> = ({ title, list }) => {
           setOpen((prev) => !prev);
         }}
       >
-        <h3 className="text-2xl">{title}</h3>
+        <h3 className="text-xl lg:text-2xl">{title}</h3>
         <div
           className={clsx(
             "w-3 h-3 border-tertiary border-b-2  border-solid lg:hidden transition-transform duration-300 ease-in-out",
