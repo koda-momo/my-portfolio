@@ -54,7 +54,16 @@ export default function Index() {
         />
       </div>
 
-      <p className="my-16 text-center">2021年10月〜 フロントエンドエンジニア</p>
+      <div className="my-16 flex flex-col items-center">
+        <img
+          src="https://avatars.githubusercontent.com/u/174192380"
+          alt="プロフィールアイコン"
+          className="w-20 h-20 lg:w-36 lg:h-36 rounded-full"
+        />
+        <p className="mt-4">koda-momo</p>
+        <p className="mt-4">2021年10月〜 フロントエンドエンジニア</p>
+        <p>ものづくり全般が好きです</p>
+      </div>
 
       <div className="w-[90%] lg:w-[70%] mx-auto pb-20">
         {/* カード */}
