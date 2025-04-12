@@ -14,10 +14,10 @@ export const pageNavList: Url[] = [
     name: "スキル",
     url: "/skill",
   },
-  {
-    name: "私について",
-    url: "/about-me",
-  },
+  // {
+  //   name: "私について",
+  //   url: "/about-me",
+  // },
   {
     name: "このサイトについて",
     url: "/portfolio",

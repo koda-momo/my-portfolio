@@ -70,8 +70,8 @@ export const otherSkillList = [
 
 // 業務外
 export const outsideList = [
-  "英語学習(TOEIC受講, オンライン英会話)",
-  "読書",
-  "月1 zennの投稿",
-  "月1 セミナーイベントへの参加",
+  "Qiita / zennなど技術記事の投稿",
+  "月1：connpassからオンライン / オフラインイベントへの参加",
+  "週1：社内のフロントエンド勉強会参加",
+  "英語学習：TOEIC / オンライン英会話",
 ];
